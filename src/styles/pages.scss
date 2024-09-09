@@ -1,0 +1,178 @@
+@import "./varibles.scss";
+
+// Home
+#home {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 43px;
+}
+
+// Product Page
+#logement {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  .information {
+    display: flex;
+    flex-flow: row, nowrap;
+    width: 100%;
+    justify-content: space-between;
+    padding: 24px 0;
+    .left,
+    .right {
+      width: fit-content;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+    }
+    .left {
+      align-items: flex-start;
+      gap: 20px;
+      h1 {
+        color: $primary;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-medium;
+        text-wrap: balance;
+      }
+      .subtitle {
+        font-size: $font-size-md;
+        font-weight: $font-weight-medium;
+        text-wrap: balance;
+      }
+      .tags {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: baseline;
+        gap: 10px;
+        .tag {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          min-width: 115px;
+          height: 25px;
+          width: max-content;
+          background-color: $primary;
+          color: $white;
+          font-size: $font-size-sm;
+          font-weight: $font-weight-bolder;
+          border-radius: $border-radius-md;
+          padding: 3px 30px;
+        }
+      }
+    }
+    .right {
+      align-items: flex-end;
+      text-align: right;
+      gap: 21px;
+      .avatar {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 10px;
+        p {
+          color: $primary;
+          font-size: $font-size-md;
+          font-weight: $font-weight-medium;
+          text-wrap: balance;
+        }
+        img {
+          aspect-ratio: 1/1;
+          width: 64px;
+          border-radius: 100%;
+        }
+      }
+      .rating {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        align-items: baseline;
+        .star {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          aspect-ratio: 1/1;
+          width: 34px;
+        }
+      }
+    }
+  }
+  .full {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 76px;
+  }
+}
+
+// About
+
+#about {
+  .content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 30px;
+    padding: 38px;
+    .dropdown {
+      max-width: calc(100% - 216px);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  // logement
+  #logement {
+    .information {
+      padding: 15px 0;
+      flex-flow: column nowrap;
+      gap: 16px;
+      .left {
+        width: 100%;
+        h1 {
+          font-size: $font-size-md;
+          text-wrap: pretty;
+        }
+        .subtitle {
+          font-size: $font-size-sm;
+        }
+        .tags {
+          flex-flow: row wrap;
+          .tag {
+            font-size: 10px;
+            min-width: none;
+          }
+        }
+      }
+      .right {
+        flex-flow: row-reverse nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .avatar {
+          p {
+            font-size: $font-size-xs;
+          }
+          img {
+            width: 32px;
+          }
+        }
+        .rating {
+          .star {
+            width: 18px;
+            svg {
+              aspect-ratio: 1/1;
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+    .full {
+      flex-flow: column nowrap;
+      gap: 24px;
+    }
+  }
+}

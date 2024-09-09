@@ -1,0 +1,341 @@
+@import "./varibles.scss", "./mixins.scss", "./pages.scss";
+
+* {
+  font-family: $font-family;
+  line-height: 140%;
+  color: $text-color;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+// Header
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px 100px 25px 100px;
+  img {
+    object-fit: contain;
+    width: 210.32px;
+    height: 68px;
+  }
+  nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 57px;
+    width: 100%;
+    a {
+      font-size: $font-size-lg;
+      text-transform: capitalize;
+      text-align: right;
+      &:hover {
+        color: $text-color-primary;
+      }
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Main
+section {
+  padding: 25px 100px 50px 100px;
+}
+
+// Footer
+footer {
+  background-color: $black;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28.58px;
+  min-height: 209px;
+  img {
+    max-width: 122px;
+    width: 100%;
+    object-fit: contain;
+  }
+  p {
+    color: $white;
+  }
+}
+
+// Error
+.error-page {
+  min-height: calc(100vh);
+  @include flex-center;
+  flex-flow: column nowrap;
+  gap: 139px;
+  .error-number {
+    color: $text-color-primary;
+    font-size: $font-error;
+    font-weight: $font-weight-bolder;
+    line-height: 100%;
+  }
+  .error-text {
+    color: $text-color-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    line-height: 140%;
+    text-align: center;
+  }
+  a {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    text-decoration: underline;
+    &:hover {
+      color: $text-color-primary;
+    }
+  }
+}
+
+// Components
+
+/*en tete*/
+section header {
+  position: relative;
+  mix-blend-mode: darken;
+  @include flex-center;
+  text-align: left;
+  text-wrap: balance;
+  width: 100%;
+  height: 223px;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  h1 {
+    font-size: $font-size-title;
+    color: $white;
+    text-shadow: 0px 4px 4px $black;
+  }
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    opacity: 60%;
+    z-index: -1;
+  }
+}
+/*cards*/
+section .cards {
+  background-color: #f6f6f6;
+  border-radius: 25px;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 60px;
+  padding: 56px 50px;
+  .card {
+    flex: 1;
+    position: relative;
+    min-width: 280px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: $primary;
+    border-radius: $border-radius-md;
+    @include flex-center;
+    overflow: hidden;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-title {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      height: 100%;
+      font-size: $font-size-md;
+      font-weight: $font-weight-bolder;
+      text-wrap: balance;
+      line-height: 140%;
+      color: $white;
+      z-index: 1;
+      background: $gradient;
+      padding: 20px;
+    }
+  }
+}
+/*drpdown*/
+.dropdown {
+  width: 100%;
+  .dropdown-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary;
+    width: 100%;
+    padding: 10px;
+    border-radius: $border-radius-md;
+    cursor: pointer;
+    h3 {
+      color: $white;
+      font-size: $font-size-md;
+      font-weight: $font-weight-bolder;
+    }
+  }
+  &.open {
+    background-color: #f6f6f673;
+    border-radius: $border-radius-md $border-radius-md 0 0;
+    .dropdown-title {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+    .dropdown-content {
+      display: block;
+      padding: 20px;
+      font-size: $font-size-md;
+      text-wrap: pretty;
+    }
+  }
+}
+/*carousel*/
+.carousel {
+  position: relative;
+  min-width: 100%;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  .carousel-img {
+    max-height: 415px;
+    min-width: 100%;
+    border-radius: $border-radius-lg;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .btn {
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    background: none;
+
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 2;
+    &.btn-previous {
+      left: 0;
+      img {
+        transform: rotate(-90deg);
+      }
+    }
+    &.btn-next {
+      right: 0;
+      img {
+        transform: rotate(90deg);
+      }
+    }
+    &:hover {
+      background-color: #f6f6f625;
+      backdrop-filter: blur(4px);
+    }
+    img {
+      height: 80px;
+    }
+  }
+}
+
+//Media queries
+@media screen and (max-width: 768px) {
+  // header
+  header {
+    padding: 20px 20px 0 20px;
+    img {
+      width: 145px;
+      height: 46.88px;
+    }
+    nav {
+      gap: 26px;
+      a {
+        font-size: $font-size-xs;
+      }
+    }
+  }
+  //section
+  section {
+    padding: 27px 20px;
+  }
+  //footer
+  footer {
+    gap: 0;
+    min-height: 209px;
+  }
+  // error
+  .error-page {
+    gap: 113px;
+    .error-number {
+      font-size: 96px;
+    }
+    .error-text {
+      font-size: $font-size-md;
+    }
+    a {
+      font-size: $font-size-sm;
+    }
+  }
+  // components
+  //entete
+  section header {
+    height: 111px;
+    border-radius: $border-radius-md;
+    padding: 31px 16px;
+    h1 {
+      font-size: $font-size-lg;
+    }
+  }
+  //card
+  section .cards {
+    padding: 0;
+    background: none;
+    gap: 20px;
+    .card {
+      min-width: 335px;
+      width: 100%;
+      aspect-ratio: unset;
+      min-height: 255px;
+    }
+  }
+  //dropdown
+  .dropdown {
+    .dropdown-title {
+      h3 {
+        font-size: 13px;
+      }
+    }
+    &.open {
+      .dropdown-content {
+        padding: 13px 20px;
+        font-size: 12px;
+      }
+    }
+  }
+  //carousel
+  .carousel {
+    .carousel-img {
+      height: 255px;
+    }
+    .btn {
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

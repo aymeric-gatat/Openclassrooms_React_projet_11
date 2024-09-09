@@ -1,0 +1,33 @@
+//** ============ Variables ============ **//
+
+// Colors
+$primary: #ff6060;
+$white: #ffffff;
+$gray: #c4c4c4;
+$black: #000000;
+$gradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.5) 100%);
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+$font-family: "Montserrat", sans-serif;
+
+$text-color: #000000;
+$text-color-primary: $primary;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 18px;
+$font-size-lg: 24px;
+$font-size-xl: 36px;
+$font-size-title: 48px;
+$font-error: 288px;
+
+$font-weight-lighter: 400;
+$font-weight-medium: 500;
+$font-weight-bolder: 700;
+
+//Other
+$border-radius-null: 0px;
+$border-radius-sm: 5px;
+$border-radius-md: 10px;
+$border-radius-lg: 25px;
