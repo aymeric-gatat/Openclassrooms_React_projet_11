@@ -135,15 +135,14 @@ section .cards {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  gap: 60px;
+  gap: clamp(30px, 4vw, 60px);
   padding: 56px 50px;
   .card {
-    flex: 1;
+    flex: 1 1 280px;
     position: relative;
-    min-width: 280px;
     width: 100%;
+    max-width: calc((100% - 120px) / 3);
     aspect-ratio: 1/1;
-    background-color: $primary;
     border-radius: $border-radius-md;
     @include flex-center;
     overflow: hidden;
@@ -175,6 +174,7 @@ section .cards {
 /*drpdown*/
 .dropdown {
   width: 100%;
+  cursor: pointer;
   .dropdown-title {
     display: inline-flex;
     align-items: center;
@@ -184,6 +184,7 @@ section .cards {
     padding: 10px;
     border-radius: $border-radius-md;
     cursor: pointer;
+    transition: height 0.3s ease-in-out;
     h3 {
       color: $white;
       font-size: $font-size-md;
@@ -202,7 +203,13 @@ section .cards {
       display: block;
       padding: 20px;
       font-size: $font-size-md;
-      text-wrap: pretty;
+      transition: font-size 0s linear;
+      &.open {
+        @include slide-bottom;
+      }
+      &.close {
+        @include slide-out;
+      }
     }
   }
 }
@@ -310,6 +317,7 @@ section .cards {
       width: 100%;
       aspect-ratio: unset;
       min-height: 255px;
+      max-width: none;
     }
   }
   //dropdown

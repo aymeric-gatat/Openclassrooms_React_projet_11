@@ -14,9 +14,10 @@ export default function Dropdown({ title, content, type }) {
         <h3>{title}</h3>
         <img src={arrow} alt="arrow" />
       </div>
-      {isOpen && (
-        <div className="dropdown-content">
-          {type === "text" ? (
+
+      <div className={`dropdown-content ${isOpen ? "open" : "close"}`}>
+        {isOpen &&
+          (type === "text" ? (
             <p>{content}</p>
           ) : (
             <ul>
@@ -24,9 +25,8 @@ export default function Dropdown({ title, content, type }) {
                 <li key={index}>{item}</li>
               ))}
             </ul>
-          )}
-        </div>
-      )}
+          ))}
+      </div>
     </div>
   );
 }

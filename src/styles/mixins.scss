@@ -4,3 +4,41 @@
   justify-content: center;
   align-items: center;
 }
+
+// Animation
+
+// animation slide-bottom
+@keyframes slide-bottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@mixin slide-bottom() {
+  animation: slide-bottom 0.3s forwards;
+}
+
+// animation slide-out
+@keyframes slide-out {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+}
+
+@mixin slide-out() {
+  animation: slide-out 0.3s forwards;
+}
